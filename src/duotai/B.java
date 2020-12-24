@@ -1,0 +1,18 @@
+package duotai;
+
+/**
+ * @author lvyue
+ * @since 2020/11/16
+ */
+public class B extends A {
+
+    public String show(B obj) {
+        return ("B and B");
+    }
+
+    @Override
+    public String show(A obj) {
+        return ("B and A");
+    }
+
+}
