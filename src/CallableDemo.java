@@ -35,3 +35,19 @@ class MyThread implements Callable<Integer> {
         return 1024;
     }
 }
+
+class Aa implements Runnable {
+
+    @Override
+    public void run() {
+
+    }
+}
+
+class Bb implements Callable<String> {
+
+    @Override
+    public String call() throws Exception {
+        return null;
+    }
+}

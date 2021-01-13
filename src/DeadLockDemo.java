@@ -20,25 +20,25 @@ public class DeadLockDemo {
 
 class HoldLockThread implements Runnable {
 
-    private String lockA;
-    private String lockB;
+    private String lock1;
+    private String lock2;
 
-    public HoldLockThread(String lockA, String lockB) {
-        this.lockA = lockA;
-        this.lockB = lockB;
+    public HoldLockThread(String lock1, String lock2) {
+        this.lock1 = lock1;
+        this.lock2 = lock2;
     }
 
     @Override
     public void run() {
-        synchronized (lockA) {
-            System.out.println(Thread.currentThread().getName() + "\t 自己持有：" + lockA + "\t 尝试获得：" + lockB);
+        synchronized (lock1) {
+            System.out.println(Thread.currentThread().getName() + "\t 自己持有：" + lock1 + "\t 尝试获得：" + lock2);
             try {
                 TimeUnit.SECONDS.sleep(2);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            synchronized (lockB) {
-                System.out.println(Thread.currentThread().getName() + "\t 自己持有：" + lockB + "\t 尝试获得：" + lockA);
+            synchronized (lock2) {
+                System.out.println(Thread.currentThread().getName() + "\t 自己持有：" + lock2 + "\t 尝试获得：" + lock1);
             }
         }
     }
