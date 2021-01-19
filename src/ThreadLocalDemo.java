@@ -9,13 +9,15 @@ import java.util.stream.IntStream;
 public class ThreadLocalDemo {
 
     public static void main(String[] args) {
-        ThreadLocal threadLocal1 = new ThreadLocal();
-        threadLocal1.set("dddd");
-        System.out.println(threadLocal1.get());
+//        ThreadLocal threadLocal1 = new ThreadLocal();
+//        threadLocal1.set("dddd");
+//        System.out.println(threadLocal1.get());
+//
+//        ThreadLocal threadLocal2 = new ThreadLocal();
+//        threadLocal2.set("eee");
+//        System.out.println(threadLocal2.get());
 
-        ThreadLocal threadLocal2 = new ThreadLocal();
-        threadLocal2.set("eee");
-        System.out.println(threadLocal2.get());
+        bbb();
     }
 
     public static void bbb() {
@@ -23,6 +25,7 @@ public class ThreadLocalDemo {
         Random random = new Random();
         IntStream.range(0, 5).forEach(a -> new Thread(() -> {
             local.set(a + " " + random.nextInt(10));
+            System.out.println(local.toString());
             System.out.println("线程为：" + a + "，local值为：" + local.get());
             try {
                 TimeUnit.SECONDS.sleep(1);
