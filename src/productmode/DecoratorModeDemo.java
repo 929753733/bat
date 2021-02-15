@@ -8,7 +8,6 @@ package productmode;
  * 代码如下所示。
  * <p>
  * Decorator Pattern
- * Created by Calvin on 2017/5/10.
  */
 public class DecoratorModeDemo {
     public static void main(String[] args) {
